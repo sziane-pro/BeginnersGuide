@@ -101,8 +101,10 @@ else ifeq ($(OS_NAME),Darwin)
 	source .venv/bin/activate
 	rfbrowser init
 else
-	@powershell -Command ".venv\/Scripts\/Activate.ps1"
+	@powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process"
+	@powershell -Command ".venv\Scripts\Activate.ps1"
 	@powershell -Command "rfbrowser init"
+	@powershell -Command "Set-ExecutionPolicy -ExecutionPolicy <OriginalPolicy> -Scope Process"
 endif
 
 tidy:
