@@ -64,7 +64,7 @@ else
 	rm -rf $(VENV)
 endif
 
-install-venv: clean-venv
+install: clean-venv
 ifeq ($(OS_NAME),MAC_OS)
 	@echo "OS detection : Mac OS X platform"
 	brew update && brew install wget curl unzip python@3.10
@@ -94,9 +94,6 @@ endif
 
 tidy:
 	$(PYTHON) -m robotidy .
-
-install: install-venv install-chromedriver
-	$(PYTHON) tasks/init/initialize.py
 
 # Run test(s)
 test: $(PYTHON)
