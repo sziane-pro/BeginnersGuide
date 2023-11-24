@@ -79,6 +79,7 @@ else
 endif
 	$(PYTHON) -m pip install --upgrade pip
 	make upgrade-pylibs
+	make install-rfbrowser
 
 upgrade-pylibs:
 	$(PIP) install -r requirements.txt
@@ -90,6 +91,18 @@ ifeq ($(OS_NAME),darwin)
 else ifeq ($(OS_NAME),linux)
 	@echo "OS detection : GNU/Linux platform"
 	@bash install-chrome-linux.sh
+endif
+
+install-rfbrowser:
+ifeq ($(OS_NAME),Linux)
+	source .venv/bin/activate
+	rfbrowser init
+else ifeq ($(OS_NAME),Darwin)
+	source .venv/bin/activate
+	rfbrowser init
+else
+	@powershell -Command ".venv\/Scripts\/Activate.ps1"
+	@powershell -Command "rfbrowser init"
 endif
 
 tidy:
