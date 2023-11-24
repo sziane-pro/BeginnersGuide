@@ -4,6 +4,22 @@ HEADLESS= TRUE
 PROCESS = 8
 RESULTS_FOLDER= Results/
 SCENARIOS_FOLDER= Examples/
+VENV= .venv
+
+# Os detection
+ifeq ($(shell uname -s),Linux)
+	OS_NAME= LINUX
+	PYTHON= $(VENV)/bin/python
+	PIP= $(VENV)/bin/pip
+else ifeq ($(shell uname -s),Darwin)
+	OS_NAME= MAC_OS
+	PYTHON= $(VENV)/bin/python
+	PIP= $(VENV)/bin/pip
+else
+	OS_NAME= WINDOWS
+	PYTHON= $(VENV)\Scripts\python.exe
+	PIP= $(VENV)\Scripts\pip.exe
+endif
 
 # Defines the default target that `make` will to try to make, or in the case of a phony target, execute the specified commands
 .PHONY: install chrome
@@ -19,9 +35,6 @@ help:
 	@echo "To open test results type : make open-log / make open-report"
 	@echo "To clean all log types : make clean-all"
 	@echo "------------------------------------"
-
-# Os detection
-OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 os:
 	@echo $(OS_NAME)
@@ -44,24 +57,33 @@ os:
 #
 ###################################
 
-# Installation/Setup
-install:
-ifeq ($(OS_NAME),darwin)
-	@echo "OS detection : Mac OS X platform"
-	# Install homebrew, fix needed
-    #curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
-	brew update && brew install wget curl unzip python@3
-	python3 -m pip install --upgrade pip
-	@bash install-chrome-mac.sh
-else ifeq ($(OS_NAME),linux)
-	@echo "OS detection : GNU/Linux platform"
-	apt-get update && apt-get install -y wget curl unzip python3 python3-pip
-	python3 -m pip install --upgrade pip
-	@bash install-chrome-linux.sh
+clean-venv:
+ifeq ($(OS_NAME),WINDOWS)
+	@powershell -Command "if (Test-Path '$(VENV)') { Remove-Item -Path '$(VENV)' -Recurse -Force }"
+else
+	rm -rf $(VENV)
 endif
-	pip3 install requests==2.30.0    robotframework==6.0.2    robotframework-browser==16.2.0    robotframework-debuglibrary==2.3.0    robotframework-jsonlibrary==0.5    robotframework-metrics==3.3.3    robotframework-pabot==2.15.0    robotframework-pythonlibcore==4.1.2    robotframework-requests==0.9.2    robotframework-seleniumlibrary==6.1.0    robotframework-seleniumtestability==2.1.0    selenium==4.9.1    urllib3==1.26.15 --upgrade
 
-update-chromedriver:
+install-venv: clean-venv
+ifeq ($(OS_NAME),MAC_OS)
+	@echo "OS detection : Mac OS X platform"
+	brew update && brew install wget curl unzip python@3.10
+	python3.10 -m venv $(VENV)
+else ifeq ($(OS_NAME),LINUX)
+	@echo "OS detection : GNU/Linux platform"
+	sudo apt-get update && sudo apt-get install -y wget curl unzip python3.10 python3-pip python3.10-venv
+	python3.10 -m venv $(VENV)
+else
+	choco install -y python3 --version=3.10.11 --force
+	py -m venv $(VENV)
+endif
+	$(PYTHON) -m pip install --upgrade pip
+	make upgrade-pylibs
+
+upgrade-pylibs:
+	$(PIP) install -r requirements.txt
+
+install-chromedriver:
 ifeq ($(OS_NAME),darwin)
 	@echo "OS detection : Mac OS X platform"
 	@bash install-chrome-mac.sh
@@ -69,13 +91,19 @@ else ifeq ($(OS_NAME),linux)
 	@echo "OS detection : GNU/Linux platform"
 	@bash install-chrome-linux.sh
 endif
+
+tidy:
+	$(PYTHON) -m robotidy .
+
+install: install-venv install-chromedriver
+	$(PYTHON) tasks/init/initialize.py
 
 # Run test(s)
-test:
-	robot -v HEADLESS:${HEADLESS} -i ${TEST} -d ${RESULTS_FOLDER} ${SCENARIOS_FOLDER}
+test: $(PYTHON)
+	$(PYTHON) -m robot -v HEADLESS:${HEADLESS} -i ${TEST} -d ${RESULTS_FOLDER} ${SCENARIOS_FOLDER}
 
-ptest:
-	pabot --processes ${PROCESS} --pabotlib -x result.xml -v HEADLESS:${HEADLESS} -i ${TEST} -d ${RESULTS_FOLDER} ${SCENARIOS_FOLDER}
+ptest: $(PYTHON)
+	$(PYTHON) -m pabot --processes ${PROCESS} --pabotlib -x result.xml -v HEADLESS:${HEADLESS} -i ${TEST} -d ${RESULTS_FOLDER} ${SCENARIOS_FOLDER}
 
 clean-sc:
 	rm -rf Results/*.png
