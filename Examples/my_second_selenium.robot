@@ -3,18 +3,14 @@ Library     SeleniumLibrary
 
 
 *** Variables ***
-${FIRSTNAME}    value
-${LASTNAME}     value
-${EMAIL}        value
-${MESSAGE}      value
+${OPTION_1}     value
+${OPTION_2}     value
 
 
 *** Test Cases ***
-My Second Selenium Robot Test
+Demo Selenium Easy Select Dropdown List
     [Tags]    my_second_selenium
-    # Step 1 : aller sur le site https://thedemosite.co.uk/
-    # Step 2 : cliquer dans le menu sur la page "Contact"
-    # Step 3 : vérifier que le formulaire (element <form/>) est présent dans le DOM HTML
-    # Step 4 : remplir le formulaire de contact (prendre en compte le nombre de champs à remplir)
-    # Step 5 : soumettre le formulaire de contact
-    # Step 6 : vérifier que le formulaire a bien été envoyé
+    # Step 1 : aller sur le site https://demo.seleniumeasy.com/basic-select-dropdown-demo.html 
+    # Step 2 : dans la liste simple sélectionnez le jour « Monday »
+    # Step 3 : dans la liste à choix multiple sélectionnez les villes « New York » et « Texas »
+    # Step 4 : contrôler dans les champs de retours sur la page web les valeurs sélectionnées

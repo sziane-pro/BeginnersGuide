@@ -1,11 +1,19 @@
 *** Settings ***
 Library     SeleniumLibrary
 
+*** Settings ***
+Library     SeleniumLibrary
+
+*** Variables ***
+${MESSAGE}    Lorem Ipsum
+${VALUE_1}    10
+${VALUE_2}    5
+
 
 *** Test Cases ***
 My Fisrt Selenium Robot Test
     [Tags]    my_first_selenium
-    # Step 1 : aller sur le site https://thedemosite.co.uk/
-    # Step 2 : cliquer sur le premier article de la page d'accueil
-    # Step 3 : vérifier que le termes "Web3" est bien présent plus de 10 fois dans la page
-    # Step 4 : vérifier qu'il y a bien deux blocs related posts
+    # Step 1 : aller sur le site https://demo.seleniumeasy.com/basic-first-form-demo.html
+    # Step 2 : remplir le premier formulaire et vérifier le résultat
+    # Step 3 : remplir le deuxième formulaire et vérifier le résultat
+    # Step 4 : contrôler les deux résultats avec les retours textuels visibles sur la page web
