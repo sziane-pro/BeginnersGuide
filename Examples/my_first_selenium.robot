@@ -1,9 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
 
-*** Settings ***
-Library     SeleniumLibrary
-
 *** Variables ***
 ${MESSAGE}    Lorem Ipsum
 ${VALUE_1}    10
