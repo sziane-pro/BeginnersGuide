@@ -19,7 +19,7 @@ ${LOCATOR_BUTTON_CLEAR}     YOU_CAN_DO_IT_LOCATOR
 
 
 *** Test Cases ***
-Sceanrio TODO
+Scenario TODO
     [Documentation]
     ...    \n0) Exercices sur le site angular
     ...    \n1) scenario d'ajout de 3 todo
