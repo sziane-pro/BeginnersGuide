@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        "env": {
+            "PROJECT_FOLDER": "${workspaceFolder}"
+        }
+    },
+    "tasks": [
+        {
+            "label": "RobotFramework : robocop",
+            "type": "shell",
+            "command": "venv/Scripts/activate; robocop --reports all tests",
+            "problemMatcher": []
+        },
+        {
+            "label": "RobotFramework : robotidy",
+            "type": "shell",
+            "command": "venv/Scripts/activate; robotidy tests",
+            "problemMatcher": []
+        },
+        {
+            "label": "RobotFramework : dryrun",
+            "type": "shell",
+            "command": "venv/Scripts/activate; robot --outputdir output --dryrun tests/testsuites",
+            "problemMatcher": []
+        },
+        {
+            "label": "RobotFramework : RUN test Web Browser Chrome",
+            "type": "shell",
+            "command": "venv/Scripts/activate; robot -d output -v BROWSER:chrome -i web  tests/testsuites",
+            "problemMatcher": []
+        }
+    ]
+}

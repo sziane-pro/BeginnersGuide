@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "robocorp.robotframework-lsp",
+        "bierner.emojisense",
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-emoji",
+        "yzane.markdown-pdf"
+    ]
+}
