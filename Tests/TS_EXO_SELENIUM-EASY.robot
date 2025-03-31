@@ -15,6 +15,7 @@ ${SELENIUM_EASY_URL}    http://localhost:8000/demo.seleniumeasy.com
 
 *** Test Cases ***
 Test00 Selenium Menu Input Forms - Simple Form Demo - Single Input Field
+    [Tags]    selenium_00
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-first-form-demo.html
     ...    ${\n}EXERCICE : saisir le message Hello dans le champ text
@@ -36,6 +37,7 @@ Test00 Selenium Menu Input Forms - Simple Form Demo - Single Input Field
 
 
 Test01 Selenium Menu Input Forms - Simple Form Demo - Two Input Fields
+    [Tags]    selenium_01
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-first-form-demo.html
     ...    ${\n}EXERCICE : Manipulation du formulaire
@@ -53,6 +55,7 @@ Test01 Selenium Menu Input Forms - Simple Form Demo - Two Input Fields
     # CODE A IMPLEMENTER ICI
 
 Test02 Selenium Menu Input Forms - Checkbox Demo - Single Checkbox Demo
+    [Tags]    selenium_02
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-checkbox-demo.html
     ...    ${\n}EXERCICE : Manipulation du formulaire
@@ -64,6 +67,7 @@ Test02 Selenium Menu Input Forms - Checkbox Demo - Single Checkbox Demo
     # CODE A IMPLEMENTER ICI
 
 Test03 Selenium Menu Input Forms - Checkbox Demo - Multiple Checkbox Demo
+    [Tags]    selenium_03
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-checkbox-demo.html
     ...    ${\n}EXERCICE : Manipulation du formulaire
@@ -76,6 +80,7 @@ Test03 Selenium Menu Input Forms - Checkbox Demo - Multiple Checkbox Demo
     # CODE A IMPLEMENTER ICI
 
 Test04 Selenium Menu Input Forms - Radio Buttons Demo - Radio Button Demo
+    [Tags]    selenium_04
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-radiobutton-demo.html
     ...    ${\n}EXERCICE : Manipulation du formulaire
@@ -88,6 +93,7 @@ Test04 Selenium Menu Input Forms - Radio Buttons Demo - Radio Button Demo
     # CODE A IMPLEMENTER ICI
 
 Test05 Selenium Menu Input Forms - Select Dropdown List - Select List Demo
+    [Tags]    selenium_05
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-select-dropdown-demo.html
     ...    ${\n}EXERCICE : Manipulation du formulaire
@@ -101,6 +107,7 @@ Test05 Selenium Menu Input Forms - Select Dropdown List - Select List Demo
     # CODE A IMPLEMENTER ICI
 
 Test06 Selenium Menu Input Forms - Select Dropdown List - Multi Select List Demo
+    [Tags]    selenium_06
     [Documentation]    ...    ${\n}Présentation Exercice
     ...    /basic-select-dropdown-demo.html
     ...    ${\n}EXERCICE : Manipulation du formulaire
@@ -114,6 +121,7 @@ Test06 Selenium Menu Input Forms - Select Dropdown List - Multi Select List Demo
     # Select From List By Label ne fonctionnera pas, utiliser le click sur les balises option
 
 Test07 Selenium Menu Progress Bars & Sliders - Bootstrap Progress bar - Progress Bar for Download
+    [Tags]    selenium_07
     [Documentation]    ${\n}Présentation Exercice
     ...    /bootstrap-download-progress-demo.html
     ...    ${\n}EXERCICE : Cliquer sur Download
@@ -125,6 +133,7 @@ Test07 Selenium Menu Progress Bars & Sliders - Bootstrap Progress bar - Progress
     # CODE A IMPLEMENTER ICI
 
 Test08 Selenium Menu Table - Table Data Search - Type in your search
+    [Tags]    selenium_08
     [Documentation]    ${\n}Présentation Exercice sur le parcourt d'un tableau
     ...    /table-search-filter-demo.html
     ...    ${\n}Récupérer le nom de la personne affectée à jQuery
@@ -135,6 +144,7 @@ Test08 Selenium Menu Table - Table Data Search - Type in your search
     # CODE A IMPLEMENTER ICI
 
 Test09 Selenium Menu Progress Bars & Sliders - Drag & Drop Sliders - Range Sliders
+    [Tags]    selenium_09
     [Documentation]    ${\n}Présentation Exercice
     ...    /drag-drop-range-sliders-demo.html
     ...    ${\n}EXERCICE : Manipuler la barre de progression
@@ -149,6 +159,7 @@ Test09 Selenium Menu Progress Bars & Sliders - Drag & Drop Sliders - Range Slide
     # CODE A IMPLEMENTER ICI
 
 Test10 Selenium Menu Table - Table Pagination - Table with Pagination Example
+    [Tags]    selenium_10
     [Documentation]    ${\n}Présentation Exercice
     ...    /table-pagination-demo.html
     ...    ${\n}EXERCICE : Naviguer sur le nombre de page et le nombre de ligne des tableaux
