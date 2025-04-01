@@ -26,7 +26,6 @@ Scenario TODO
     ...    \n2) traitement d'une tache
     ...    \n3) supression d'une tache
     ...    \n4) contrôle supplémentaire
-    ...    \n5) tester sur d'autres sites react/vue
     Launch Todo
     YOU_CAN_DO_IT_KEYWORD    ${OUTPUT_DIR}/step01-initial.png
     Add Todo    SELENIUM
