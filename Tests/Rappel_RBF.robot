@@ -2,9 +2,6 @@
 Documentation       Permet d'avoir des exemples d'utilisation de Robot Framework
 ...                 \nC'est un condensé de tout ce que l'on doit connaitre avant de faire des tests Selenium/Appium
 ...                 \nC'est un résumé du User Guide et des keywords indispensables de la librairie Builtin
-Metadata            Version    1.0
-Metadata            Date    18/10/2020
-Metadata            Author    eric.mersier@sogeti.com
 
 Library             OperatingSystem
 Library             Collections
