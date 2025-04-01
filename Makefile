@@ -3,7 +3,7 @@ PYTHON= python3
 HEADLESS= TRUE
 PROCESS = 8
 RESULTS_FOLDER= Results/
-SCENARIOS_FOLDER= Examples/
+SCENARIOS_FOLDER= Tests/
 VENV= .venv
 
 # Os detection
