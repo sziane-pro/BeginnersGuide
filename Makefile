@@ -85,26 +85,23 @@ upgrade-pylibs:
 	$(PIP) install -r requirements.txt
 
 install-chromedriver:
-ifeq ($(OS_NAME),darwin)
+ifeq ($(OS_NAME),MAC_OS)
 	@echo "OS detection : Mac OS X platform"
 	@bash install-chrome-mac.sh
-else ifeq ($(OS_NAME),linux)
+else ifeq ($(OS_NAME),LINUX)
 	@echo "OS detection : GNU/Linux platform"
 	@bash install-chrome-linux.sh
 endif
 
 install-rfbrowser:
-ifeq ($(OS_NAME),Linux)
+ifeq ($(OS_NAME),LINUX)
 	source .venv/bin/activate
 	rfbrowser init
-else ifeq ($(OS_NAME),Darwin)
+else ifeq ($(OS_NAME),MAC_OS)
 	source .venv/bin/activate
 	rfbrowser init
 else
-	@powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process"
-	@powershell -Command ".venv\Scripts\Activate.ps1"
-	@powershell -Command "rfbrowser init"
-	@powershell -Command "Set-ExecutionPolicy -ExecutionPolicy <OriginalPolicy> -Scope Process"
+	$(VENV)\Scripts\rfbrowser.exe init
 endif
 
 tidy:
