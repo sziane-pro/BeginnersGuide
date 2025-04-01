@@ -1,5 +1,6 @@
 requests==2.32.3
 robotframework==7.2.2
+robotframework-tidy==4.16.0
 robotframework-browser==19.4.0
 robotframework-debuglibrary==2.5.0
 robotframework-jsonlibrary==0.5
