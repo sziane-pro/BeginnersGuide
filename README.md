@@ -2,22 +2,41 @@
 
 Table of contents:
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-  - [Troubleshooting installation](#troubleshooting-installation)
+- [Beginners Guide to Robot Framework](#beginners-guide-to-robot-framework)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+    - [Troubleshooting installation](#troubleshooting-installation)
     - [Selecting code editor](#selecting-code-editor)
-- [Writing a first automation case](#writing-a-first-automation-case)
-- [Viewing test results](#viewing-test-results)
-- [Content of the test case](#content-of-the-test-case)
-- [Variables](#variables)
-- [Keywords](#keywords)
-- [More information](#more-information)
+  - [Writing a first automation case](#writing-a-first-automation-case)
+  - [Viewing test results](#viewing-test-results)
+  - [Content of the test case](#content-of-the-test-case)
+  - [Variables](#variables)
+  - [Keywords](#keywords)
+  - [More information](#more-information)
 
 ## Introduction
 
 Hello! So you want to learn Robot Framework? This guide is everything you need for getting started! You don’t need any previous experience in test automation to use this guide. You will learn how to install Robot Framework on your computer and get started building cool automation.
 
 ## Installation
+
+To complete the installation speedly you can run in the CLI `make install`, this command call Makefile to perform some command shortcut, this one install python with all dependencies inside venv, virtual environment.
+
+Once the installation is done you can run test with this extention https://marketplace.visualstudio.com/items?itemName=robocorp.robotframework-lsp or with CLI like :
+
+1. with Make, you can use:
+
+```bash
+make test TEST=selenium_00
+```
+
+2. natively you can activate your venv with `.venv/Script/activate` and execute:
+
+```bash
+robot -v HEADLESS:false -i  selenium_00 -d /Results /Tests
+```
+
+If you don't want to install from make you can follow instructions bellow :
 
 1. First, check if your computer already has Python programming language. Open Terminal/Command Prompt and type in:
 
@@ -61,7 +80,7 @@ py -m robot --version
 
 ### Selecting code editor
 
-Simple robot automation can be written using a any text editor, even Notepad. Check list of [suggested editors on Robot Framework's homepage](https://robotframework.org/#tools). If you don't have preference, very popular editor is [Visual Studio Code](https://code.visualstudio.com/), that has really good [Robot Framework extension](https://marketplace.visualstudio.com/items?itemName=TomiTurtiainen.rf-intellisense).
+Simple robot automation can be written using a any text editor, even Notepad. Check list of [suggested editors on Robot Framework's homepage](https://robotframework.org/#tools). If you don't have preference, very popular editor is [Visual Studio Code](https://code.visualstudio.com/), that has really good [Robot Framework Language Server extension](https://marketplace.visualstudio.com/items?itemName=robocorp.robotframework-lsp).
 
 ## Writing a first automation case
 
